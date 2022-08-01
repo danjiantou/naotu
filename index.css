@@ -45,3 +45,6 @@ html, body {
 .diy:nth-child(6) {
     background-color: #34c9c3 !important;
 }
+.nav-bar {
+    background: #4e87d7;
+}

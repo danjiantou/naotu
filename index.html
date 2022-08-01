@@ -94,8 +94,11 @@
 <script src="ui/directive/searchBtn/searchBtn.directive.js"></script>
 <!-- /build -->
 
-
-<script src="./kityminder.editor.min.js"></script>
+<!-- build:template
+    <% if (environment != 'dev') { %>
+        <script src="./kityminder.editor.min.js"></script>
+    <% } %>
+/build -->
 <script src="./index.js"></script>
 <script>
 	angular.module('yichekityminder', ['kityminderEditor'])

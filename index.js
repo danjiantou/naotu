@@ -58,7 +58,7 @@
 				break;
 		}
 
-		editor.minder.exportData(exportType).then(function(content){
+		editor && editor.minder.exportData(exportType).then(function(content){
 			var blob = new Blob([content]);
 			switch(exportType){
 				case 'json':
