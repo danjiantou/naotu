@@ -7,7 +7,8 @@
 	html += '<a class="diy export" data-type="png">导出png</a>',
 	html += '<button class="diy input">',
 	html += '导入<input type="file" id="fileInput">',
-	html += '</button>';
+	html += '</button>'
+	html += '<button class="diy clear">清空</button>';
 
 	$('.editor-title').append(html);
 
@@ -44,8 +45,8 @@
 		// 链接在hover的时候生成对应数据到链接中
 		event.preventDefault();
 		var $this = $(this),
-				type = $this.data('type'),
-				exportType;
+			type = $this.data('type'),
+			exportType;
 		switch(type){
 			case 'km':
 				exportType = 'json';
@@ -57,7 +58,6 @@
 				exportType = type;
 				break;
 		}
-
 		editor && editor.minder.exportData(exportType).then(function(content){
 			var blob = new Blob([content]);
 			switch(exportType){
@@ -94,8 +94,9 @@
 		}
 	});
 
-	// 导入
+	
 	window.onload = function() {
+		// 导入 start
 		$('.export').css('cursor','default');
 		var fileInput = document.getElementById('fileInput');
 
@@ -127,5 +128,27 @@
 			}
 			reader.readAsText(file);
 		});
+		// 导入 end
+
+		// 清空
+		document.getElementsByClassName('diy clear')[0].onclick = function(){
+			window.localStorage.__dev_minder_content = null;
+			location.href = location.href;
+			/* editor && editor.minder.importJson({
+				template:"default",
+				theme:"fresh-blue"
+			}) */
+		}
+		try{
+			// 存贮本地
+			if (editor != undefined && window.localStorage.__dev_minder_content) {
+				editor.minder.importJson(JSON.parse(window.localStorage.__dev_minder_content));
+			}
+			editor != undefined && editor.minder.on('contentchange', function() {
+				window.localStorage.__dev_minder_content = JSON.stringify(editor.minder.exportJson());
+			});
+		} catch(e){
+			console.log(e);
+		}
 	}
 })();

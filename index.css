@@ -27,9 +27,6 @@ html, body {
 .diy {
     color: #fff !important;
 }
-.diy:nth-child(1) {
-    background-color: #28a001 !important;
-}
 .diy:nth-child(2) {
     background-color: #f08824 !important;
 }
@@ -43,7 +40,10 @@ html, body {
     background-color: #cac112 !important;
 }
 .diy:nth-child(6) {
-    background-color: #34c9c3 !important;
+    background-color: #28a001 !important;
+}
+.diy:nth-child(7) {
+    background-color: #e61008 !important;
 }
 .nav-bar {
     background: #4e87d7;
