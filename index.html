@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="index.css">
     <!-- /build -->
 </head>
-<body ng-app="yichekityminder" ng-controller="MainController">
+<body ng-app="editorBox" ng-controller="MainController">
     <div class="editor-title">
         <h1>思维脑图在线工具</h1>
     </div>
@@ -50,8 +50,10 @@
 <script src="./bower_components/json-diff/json-diff.js"></script>
 <script src="./bower_components/kityminder-core/dist/kityminder.core.min.js"></script>
 <script src="./bower_components/color-picker/dist/color-picker.min.js"></script>
+<!-- build:remove -->
+<script src="./bower_components/seajs/dist/sea.js"></script>
+<!-- /build -->
 <!-- endbower -->
-
 <!-- build:remove -->
 <script src="ui/kityminder.app.js"></script>
 <script src="ui/service/commandBinder.service.js"></script>
@@ -101,7 +103,7 @@
 /build -->
 <script src="./index.js"></script>
 <script>
-	angular.module('yichekityminder', ['kityminderEditor'])
+	angular.module('editorBox', ['kityminderEditor'])
         .controller('MainController', function($scope) {
             console.log('$scope对象：',$scope)
             $scope.initEditor = function(editor, minder) {

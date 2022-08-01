@@ -1,7 +1,7 @@
 /*
  * @Author: zhaowenb
  * @Date: 2022-07-27 12:01:07
- * @LastEditTime: 2022-07-28 14:37:40
+ * @LastEditTime: 2022-08-01 19:01:11
  * @LastEditors: zhaowenb
  * @Description: 
  */
@@ -14,9 +14,5 @@ angular.module('kityminderEditor', [
 		$sceDelegateProvider.resourceUrlWhitelist([
 			// Allow same origin resource loads.
 			'self',
-			// Allow loading from our assets domain.  Notice the difference between * and **.
-			// 'http://agroup.baidu.com:8910/**',
-            // 'http://cq01-fe-rdtest01.vm.baidu.com:8910/**',
-            // 'http://agroup.baidu.com:8911/**'
 		]);
 	});
