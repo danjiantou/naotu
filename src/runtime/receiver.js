@@ -3,7 +3,7 @@
  *
  * 键盘事件接收/分发器
  *
- * @author: techird
+ * @author: zhaowenb
  * @copyright: Baidu FEX, 2014
  */
 

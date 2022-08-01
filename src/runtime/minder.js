@@ -3,7 +3,7 @@
  *
  * 脑图示例运行时
  *
- * @author: techird
+ * @author: zhaowenb
  * @copyright: Baidu FEX, 2014
  */
 define(function(require, exports, module) {

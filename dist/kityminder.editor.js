@@ -1,9 +1,9 @@
 /*!
  * ====================================================
- * kityminder-editor - v1.0.67 - 2019-02-12
+ * kityminder-editor - v1.0.0 - 2022-08-01
  * https://github.com/fex-team/kityminder-editor
  * GitHub: https://github.com/fex-team/kityminder-editor 
- * Copyright (c) 2019 ; Licensed 
+ * Copyright (c) 2022 ; Licensed 
  * ====================================================
  */
 
@@ -38,6 +38,13 @@ var _p = {
 };
 
 //src/editor.js
+/*
+ * @Author: zhaowenb
+ * @Date: 2022-07-27 12:01:07
+ * @LastEditTime: 2022-07-28 10:19:53
+ * @LastEditors: zhaowenb
+ * @Description: 
+ */
 _p[0] = {
     value: function(require, exports, module) {
         /**
@@ -70,18 +77,17 @@ _p[0] = {
         assemble(_p.r(13));
         assemble(_p.r(16));
         assemble(_p.r(17));
-        return module.exports = KMEditor;
+        return exports = KMEditor;
     }
 };
 
 //src/expose-editor.js
-/**
- * @fileOverview
- *
- * 打包暴露
- *
- * @author: techird
- * @copyright: Baidu FEX, 2014
+/*
+ * @Author: zhaowenb
+ * @Date: 2022-07-27 12:01:07
+ * @LastEditTime: 2022-07-28 10:23:34
+ * @LastEditors: zhaowenb
+ * @Description:  * 打包暴露
  */
 _p[1] = {
     value: function(require, exports, module) {
@@ -407,7 +413,7 @@ _p[6] = {
  *
  * 初始化编辑器的容器
  *
- * @author: techird
+ * @author: zhaowenb
  * @copyright: Baidu FEX, 2014
  */
 _p[7] = {
@@ -438,7 +444,7 @@ _p[7] = {
  *
  * 用于拖拽节点时屏蔽键盘事件
  *
- * @author: techird
+ * @author: zhaowenb
  * @copyright: Baidu FEX, 2014
  */
 _p[8] = {
@@ -573,7 +579,7 @@ _p[8] = {
  *
  * 编辑器状态机
  *
- * @author: techird
+ * @author: zhaowenb
  * @copyright: Baidu FEX, 2014
  */
 _p[9] = {
@@ -681,7 +687,7 @@ _p[9] = {
  *
  * 历史管理
  *
- * @author: techird
+ * @author: zhaowenb
  * @copyright: Baidu FEX, 2014
  */
 _p[10] = {
@@ -801,7 +807,7 @@ _p[10] = {
  *
  * 热盒 Runtime
  *
- * @author: techird
+ * @author: zhaowenb
  * @copyright: Baidu FEX, 2014
  */
 _p[11] = {
@@ -853,7 +859,7 @@ _p[11] = {
  *
  * 文本输入支持
  *
- * @author: techird
+ * @author: zhaowenb
  * @copyright: Baidu FEX, 2014
  */
 _p[12] = {
@@ -1217,7 +1223,7 @@ _p[12] = {
  *
  * 根据按键控制状态机的跳转
  *
- * @author: techird
+ * @author: zhaowenb
  * @copyright: Baidu FEX, 2014
  */
 _p[13] = {
@@ -1389,7 +1395,7 @@ _p[13] = {
  *
  * 脑图示例运行时
  *
- * @author: techird
+ * @author: zhaowenb
  * @copyright: Baidu FEX, 2014
  */
 _p[14] = {
@@ -1586,7 +1592,7 @@ _p[17] = {
  *
  * 键盘事件接收/分发器
  *
- * @author: techird
+ * @author: zhaowenb
  * @copyright: Baidu FEX, 2014
  */
 _p[18] = {
@@ -1723,7 +1729,7 @@ _p[18] = {
  *
  * 支持各种调试后门
  *
- * @author: techird
+ * @author: zhaowenb
  * @copyright: Baidu FEX, 2014
  */
 _p[19] = {
@@ -1777,7 +1783,7 @@ _p[20] = {
  *
  * innerText polyfill
  *
- * @author: techird
+ * @author: zhaowenb
  * @copyright: Baidu FEX, 2014
  */
 _p[21] = {
@@ -1824,7 +1830,7 @@ _p[21] = {
  *
  *
  *
- * @author: techird
+ * @author: zhaowenb
  * @copyright: Baidu FEX, 2014
  */
 _p[22] = {
@@ -2061,6 +2067,13 @@ var moduleMapping = {
 function use(name) {
     _p.r([ moduleMapping[name] ]);
 }
+/*
+ * @Author: zhaowenb
+ * @Date: 2022-07-27 12:01:07
+ * @LastEditTime: 2022-07-28 14:37:40
+ * @LastEditors: zhaowenb
+ * @Description: 
+ */
 angular.module('kityminderEditor', [
     'ui.bootstrap',
 	'ui.codemirror',
@@ -2071,9 +2084,9 @@ angular.module('kityminderEditor', [
 			// Allow same origin resource loads.
 			'self',
 			// Allow loading from our assets domain.  Notice the difference between * and **.
-			'http://agroup.baidu.com:8910/**',
-            'http://cq01-fe-rdtest01.vm.baidu.com:8910/**',
-            'http://agroup.baidu.com:8911/**'
+			// 'http://agroup.baidu.com:8910/**',
+            // 'http://cq01-fe-rdtest01.vm.baidu.com:8910/**',
+            // 'http://agroup.baidu.com:8911/**'
 		]);
 	}]);
 angular.module('kityminderEditor').run(['$templateCache', function($templateCache) {
@@ -2744,8 +2757,7 @@ angular.module('kityminderEditor')
  *
  * UI 状态的 LocalStorage 的存取文件，未来可能在离线编辑的时候升级
  *
- * @author: zhangbobell
- * @email : zhangbobell@163.com
+
  *
  * @copyright: Baidu FEX, 2015
  */
@@ -2952,15 +2964,12 @@ angular.module('kityminderEditor').service('revokeDialog', ['$modal', 'minder.se
 
     return {};
 }]);
-/**
- * @fileOverview
- *
- *  与后端交互的服务
- *
- * @author: zhangbobell
- * @email : zhangbobell@163.com
- *
- * @copyright: Baidu FEX, 2015
+/*
+ * @Author: zhaowenb
+ * @Date: 2022-07-27 12:01:07
+ * @LastEditTime: 2022-07-27 14:59:48
+ * @LastEditors: zhaowenb
+ * @Description: 
  */
 angular.module('kityminderEditor')
     .service('server', ['config', '$http',  function(config, $http) {
@@ -3518,6 +3527,13 @@ angular.module('kityminderEditor')
             }
         }
     }]);
+/*
+ * @Author: zhaowenb
+ * @Date: 2022-07-27 12:01:07
+ * @LastEditTime: 2022-07-27 18:29:32
+ * @LastEditors: zhaowenb
+ * @Description: 
+ */
 angular.module('kityminderEditor')
 	.directive('kityminderEditor', ['config', 'minder.service', 'revokeDialog', function(config, minderService, revokeDialog) {
 		return {
@@ -3536,7 +3552,6 @@ angular.module('kityminderEditor')
 						editor: editor,
 						minder: minder
 					});
-
 					minderService.executeCallback();
 				}
 
@@ -3642,8 +3657,7 @@ angular.module('kityminderEditor')
  *
  * 左下角的导航器
  *
- * @author: zhangbobell
- * @email : zhangbobell@163.com
+
  *
  * @copyright: Baidu FEX, 2015 */
 angular.module('kityminderEditor')

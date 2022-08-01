@@ -1,3 +1,10 @@
+/*
+ * @Author: zhaowenb
+ * @Date: 2022-07-27 12:01:07
+ * @LastEditTime: 2022-07-28 10:19:53
+ * @LastEditors: zhaowenb
+ * @Description: 
+ */
 define(function(require, exports, module) {
 
     /**
@@ -35,6 +42,5 @@ define(function(require, exports, module) {
     assemble(require('./runtime/priority'));
     assemble(require('./runtime/progress'));
 
-
-    return module.exports = KMEditor;
+    return exports = KMEditor;
 });

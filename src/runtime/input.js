@@ -3,7 +3,7 @@
  *
  * 文本输入支持
  *
- * @author: techird
+ * @author: zhaowenb
  * @copyright: Baidu FEX, 2014
  */
 define(function(require, exports, module) {

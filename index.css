@@ -1,0 +1,47 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+.editor-title {
+    background: #393F4F;
+    margin: 0;
+    height: 40px;
+    font-size: 14px;
+    line-height: 40px;
+    font-family: 'Hiragino Sans GB', 'Arial', 'Microsoft Yahei';
+    font-weight: normal;
+    padding: 0 20px;
+    overflow: hidden;
+}
+.editor-title h1 { 
+    margin: 0;
+    height: 100%;
+    line-height: 40px;
+    color: white;
+    font-size: 18px;
+    width: 200px;
+    float: left;
+}
+.diy {
+    color: #fff !important;
+}
+.diy:nth-child(1) {
+    background-color: #28a001 !important;
+}
+.diy:nth-child(2) {
+    background-color: #f08824 !important;
+}
+.diy:nth-child(3) {
+    background-color: #9155f4 !important;
+}
+.diy:nth-child(4) {
+    background-color: #156be3 !important;
+}
+.diy:nth-child(5) {
+    background-color: #cac112 !important;
+}
+.diy:nth-child(6) {
+    background-color: #34c9c3 !important;
+}

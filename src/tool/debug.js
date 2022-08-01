@@ -3,7 +3,7 @@
  *
  * 支持各种调试后门
  *
- * @author: techird
+ * @author: zhaowenb
  * @copyright: Baidu FEX, 2014
  */
 define(function(require, exports, module) {

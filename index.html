@@ -2,68 +2,57 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>KityMinder Editor - Powered By FEX</title>
+    <title>思维脑图在线工具</title>
 
 	<link href="favicon.ico" type="image/x-icon" rel="shortcut icon">
 
 	<!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="bower_components/codemirror/lib/codemirror.css" />
-    <link rel="stylesheet" href="bower_components/hotbox/hotbox.css" />
-    <link rel="stylesheet" href="node_modules/kityminder-core/dist/kityminder.core.css" />
-    <link rel="stylesheet" href="bower_components/color-picker/dist/color-picker.css" />
+    <!-- build:css ./bower_components/bootstrap/dist/css/bootstrap.min.css -->
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- /build -->
+	<link rel="stylesheet" href="./bower_components/codemirror/lib/codemirror.css" />
+	<link rel="stylesheet" href="./bower_components/hotbox/hotbox.css" />
+	<link rel="stylesheet" href="./bower_components/kityminder-core/dist/kityminder.core.css" />
+    <!-- build:css ./bower_components/color-picker/dist/color-picker.min.css -->
+    <link rel="stylesheet" href="./bower_components/color-picker/dist/color-picker.css" />
+    <!-- /build -->
 	<!-- endbower -->
 
-	<link rel="stylesheet" href="dist/kityminder.editor.css">
-
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-        }
-        h1.editor-title {
-            background: #393F4F;
-            color: white;
-            margin: 0;
-            height: 40px;
-            font-size: 14px;
-            line-height: 40px;
-            font-family: 'Hiragino Sans GB', 'Arial', 'Microsoft Yahei';
-            font-weight: normal;
-            padding: 0 20px;
-        }
-    </style>
+    <!-- build:css editor.min.css -->
+	<link rel="stylesheet" href="dist/editor.css">
+    <link rel="stylesheet" href="index.css">
+    <!-- /build -->
 </head>
-<body ng-app="kityminderDemo" ng-controller="MainController">
-    <h1 class="editor-title">KityMinder Editor - Powered By FEX</h1>
+<body ng-app="yichekityminder" ng-controller="MainController">
+    <div class="editor-title">
+        <h1>思维脑图在线工具</h1>
+    </div>
     <kityminder-editor on-init="initEditor(editor, minder)"></kityminder-editor>
 </body>
 
 <!-- bower:js -->
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-<script src="bower_components/codemirror/lib/codemirror.js"></script>
-<script src="bower_components/codemirror/mode/xml/xml.js"></script>
-<script src="bower_components/codemirror/mode/javascript/javascript.js"></script>
-<script src="bower_components/codemirror/mode/css/css.js"></script>
-<script src="bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>
-<script src="bower_components/codemirror/mode/markdown/markdown.js"></script>
-<script src="bower_components/codemirror/addon/mode/overlay.js"></script>
-<script src="bower_components/codemirror/mode/gfm/gfm.js"></script>
-<script src="bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
-<script src="bower_components/marked/lib/marked.js"></script>
-<script src="node_modules/kity/dist/kity.js"></script>
-<script src="bower_components/hotbox/hotbox.js"></script>
-<script src="bower_components/json-diff/json-diff.js"></script>
-<script src="node_modules/kityminder-core/dist/kityminder.core.js"></script>
-<script src="bower_components/color-picker/dist/color-picker.js"></script>
-<script src="bower_components/seajs/dist/sea.js"></script>
+<script src="./bower_components/jquery/dist/jquery.js"></script>
+<script src="./bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="./bower_components/angular/angular.js"></script>
+<script src="./bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="./bower_components/codemirror/lib/codemirror.js"></script>
+<script src="./bower_components/codemirror/mode/xml/xml.js"></script>
+<script src="./bower_components/codemirror/mode/javascript/javascript.js"></script>
+<script src="./bower_components/codemirror/mode/css/css.js"></script>
+<script src="./bower_components/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+<script src="./bower_components/codemirror/mode/markdown/markdown.js"></script>
+<script src="./bower_components/codemirror/addon/mode/overlay.js"></script>
+<script src="./bower_components/codemirror/mode/gfm/gfm.js"></script>
+<script src="./bower_components/angular-ui-codemirror/ui-codemirror.js"></script>
+<script src="./bower_components/marked/lib/marked.js"></script>
+<script src="./bower_components/kity/dist/kity.min.js"></script>
+<script src="./bower_components/hotbox/hotbox.js"></script>
+<script src="./bower_components/json-diff/json-diff.js"></script>
+<script src="./bower_components/kityminder-core/dist/kityminder.core.min.js"></script>
+<script src="./bower_components/color-picker/dist/color-picker.min.js"></script>
 <!-- endbower -->
 
+<!-- build:remove -->
 <script src="ui/kityminder.app.js"></script>
 <script src="ui/service/commandBinder.service.js"></script>
 <script src="ui/service/config.service.js"></script>
@@ -103,17 +92,22 @@
 <script src="ui/directive/navigator/navigator.directive.js"></script>
 <script src="ui/directive/searchBox/searchBox.directive.js"></script>
 <script src="ui/directive/searchBtn/searchBtn.directive.js"></script>
+<!-- /build -->
 
 
+<script src="./kityminder.editor.min.js"></script>
+<script src="./index.js"></script>
 <script>
-	angular.module('kityminderDemo', ['kityminderEditor'])
-			.controller('MainController', function($scope) {
-				$scope.initEditor = function(editor, minder) {
-					window.editor = editor;
-					window.minder = minder;
-				};
-			});
-
+	angular.module('yichekityminder', ['kityminderEditor'])
+        .controller('MainController', function($scope) {
+            console.log('$scope对象：',$scope)
+            $scope.initEditor = function(editor, minder) {
+                console.log('editor',editor);
+                console.log('minder',minder);
+                window.editor = editor;
+                window.minder = minder;
+            };
+        });
 </script>
 
 </html>

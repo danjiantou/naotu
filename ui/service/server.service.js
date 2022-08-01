@@ -1,12 +1,9 @@
-/**
- * @fileOverview
- *
- *  与后端交互的服务
- *
- * @author: zhangbobell
- * @email : zhangbobell@163.com
- *
- * @copyright: Baidu FEX, 2015
+/*
+ * @Author: zhaowenb
+ * @Date: 2022-07-27 12:01:07
+ * @LastEditTime: 2022-07-27 14:59:48
+ * @LastEditors: zhaowenb
+ * @Description: 
  */
 angular.module('kityminderEditor')
     .service('server', ['config', '$http',  function(config, $http) {

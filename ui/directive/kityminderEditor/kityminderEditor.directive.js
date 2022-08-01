@@ -1,3 +1,10 @@
+/*
+ * @Author: zhaowenb
+ * @Date: 2022-07-27 12:01:07
+ * @LastEditTime: 2022-07-27 18:29:32
+ * @LastEditors: zhaowenb
+ * @Description: 
+ */
 angular.module('kityminderEditor')
 	.directive('kityminderEditor', ['config', 'minder.service', 'revokeDialog', function(config, minderService, revokeDialog) {
 		return {
@@ -16,7 +23,6 @@ angular.module('kityminderEditor')
 						editor: editor,
 						minder: minder
 					});
-
 					minderService.executeCallback();
 				}
 

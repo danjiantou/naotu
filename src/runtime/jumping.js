@@ -3,7 +3,7 @@
  *
  * 根据按键控制状态机的跳转
  *
- * @author: techird
+ * @author: zhaowenb
  * @copyright: Baidu FEX, 2014
  */
 define(function(require, exports, module) {

@@ -9,6 +9,7 @@ module.exports = function(grunt) {
 	require('load-grunt-tasks')(grunt);
     grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-processhtml');
 
     var pkg = grunt.file.readJSON('package.json');
 
@@ -43,7 +44,9 @@ module.exports = function(grunt) {
 	            '.tmp',
 	            'dist/*.js',
 	            'dist/*.css',
-	            'dist/*.css.map'
+	            'dist/*.css.map',
+                'dist/*.html',
+                'dist/images/'
             ],
 	        clstmp: ['.tmp']
         },
@@ -117,11 +120,11 @@ module.exports = function(grunt) {
                 options: {
                     sourceMap: true,
 	                sourceMapURL: 'kityminder.editor.css.map',
-                    sourceMapFilename: 'dist/kityminder.editor.css.map'
+                    sourceMapFilename: 'dist/css/editor.css.map'
                 },
                 files: [{
-                    dest: 'dist/kityminder.editor.css',
-                    src: 'less/editor.less'
+                    src: 'less/editor.less',
+                    dest: 'dist/editor.css'
                 }]
             }
         },
@@ -129,9 +132,9 @@ module.exports = function(grunt) {
 	    cssmin: {
 	        dist: {
 	            files: {
-	                'dist/kityminder.editor.min.css': 'dist/kityminder.editor.css'
-	         }
-	       }
+	                'dist/editor.min.css': ['dist/editor.css', '*.css']
+	            }
+	        }
 	    },
 
 	    ngtemplates: {
@@ -161,15 +164,25 @@ module.exports = function(grunt) {
 
 	    // Copies remaining files to places other tasks can use
 	    copy: {
+            options: {
+                processContentExclude: ['Gruntfile.js']
+            },
 		    dist: {
 				files: [{
 				    expand: true,
 				    cwd: 'ui',
 					src: 'images/*',
 				    dest: 'dist'
-
+			    },{
+				    expand: true,
+					src: ['*.js', '*.ico', '!Gruntfile.js'],
+				    dest: 'dist'
+			    },{
+				    expand: true,
+					src: 'bower_components/**',
+				    dest: 'dist'
 			    }]
-		    }
+		    },
 	    },
 
 
@@ -186,15 +199,21 @@ module.exports = function(grunt) {
 				    dest: '.tmp/scripts/'
 			    }]
 		    }
-	    }
-
+	    },
+        processhtml: {
+            dist:{
+                files: {
+                    'dist/index.html': 'index.html',
+                }
+            }
+        }
 
     });
 
     // Build task(s).
 	grunt.registerTask('build', ['clean:last',
 		//'wiredep:dist',
-        'ngtemplates', 'dependence', 'ngAnnotate', 'concat', 'uglify', 'less', 'cssmin', 'copy', 'clean:clstmp']);
+        'ngtemplates', 'dependence', 'ngAnnotate', 'concat', 'uglify', 'less', 'cssmin', 'copy', 'clean:clstmp', 'processhtml']);
 
 	grunt.registerTask('dev', ['clean:last',
         //'wiredep:dev',

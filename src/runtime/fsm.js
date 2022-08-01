@@ -3,7 +3,7 @@
  *
  * 编辑器状态机
  *
- * @author: techird
+ * @author: zhaowenb
  * @copyright: Baidu FEX, 2014
  */
 define(function(require, exports, module) {

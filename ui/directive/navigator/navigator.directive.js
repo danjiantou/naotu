@@ -3,8 +3,7 @@
  *
  * 左下角的导航器
  *
- * @author: zhangbobell
- * @email : zhangbobell@163.com
+
  *
  * @copyright: Baidu FEX, 2015 */
 angular.module('kityminderEditor')
