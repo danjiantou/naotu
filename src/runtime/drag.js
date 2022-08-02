@@ -4,7 +4,7 @@
  * 用于拖拽节点时屏蔽键盘事件
  *
  * @author: zhaowenb
- * @copyright: Baidu FEX, 2014
+
  */
 define(function(require, exports, module) {
 

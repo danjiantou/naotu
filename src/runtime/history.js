@@ -4,7 +4,7 @@
  * 历史管理
  *
  * @author: zhaowenb
- * @copyright: Baidu FEX, 2014
+
  */
 
 

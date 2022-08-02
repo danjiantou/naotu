@@ -4,7 +4,7 @@
  * 键盘事件接收/分发器
  *
  * @author: zhaowenb
- * @copyright: Baidu FEX, 2014
+
  */
 
 define(function(require, exports, module) {

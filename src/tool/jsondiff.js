@@ -4,7 +4,7 @@
  *
  *
  * @author: zhaowenb
- * @copyright: Baidu FEX, 2014
+
  */
 
 

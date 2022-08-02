@@ -1,15 +1,12 @@
 /**
- * @fileOverview
- *
- * UI 状态的 LocalStorage 的存取文件，未来可能在离线编辑的时候升级
- *
-
- *
- * @copyright: Baidu FEX, 2015
- */
+ * @Author: zhaowenb
+ * @Date: 2022-07-27 12:01:07
+ * @LastEditTime: 2022-08-02 12:06:26
+ * @LastEditors: zhaowenb
+ * @Description:  UI 状态的 LocalStorage 的存取文件，未来可能在离线编辑的时候升级
+ **/
 angular.module('kityminderEditor')
     .service('memory', function() {
-
         function isQuotaExceeded(e) {
             var quotaExceeded = false;
             if (e) {

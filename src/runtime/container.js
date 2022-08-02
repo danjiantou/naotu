@@ -1,10 +1,17 @@
+/*
+ * @Author: zhaowenb
+ * @Date: 2022-07-27 12:01:07
+ * @LastEditTime: 2022-08-02 12:05:19
+ * @LastEditors: zhaowenb
+ * @Description: 
+ */
 /**
  * @fileOverview
  *
  * 初始化编辑器的容器
  *
  * @author: zhaowenb
- * @copyright: Baidu FEX, 2014
+
  */
 define(function(require, exports, module) {
 

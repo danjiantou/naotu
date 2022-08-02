@@ -58,12 +58,12 @@ angular.module('kityminderEditor')
             }
             if (/^.*\.(jpg|JPG|jpeg|JPEG|gif|GIF|png|PNG)$/.test(fileInput.val())) {
                 var file = fileInput[0].files[0];
-                return server.uploadImage(file).then(function (json) {
-                    var resp = json.data;
-                    if (resp.errno === 0) {
-                        $scope.data.url = resp.data.url;
-                    }
-                });
+                var reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = function(e) {
+                    $scope.data.base64 = e.target.result;
+                    document.getElementById('image-preview').click();
+                };
             } else {
                 alert("后缀只能是 jpg、gif 及 png");
             }
@@ -80,14 +80,13 @@ angular.module('kityminderEditor')
         };
 
         $scope.ok = function () {
-            if($scope.data.R_URL.test($scope.data.url)) {
+            if($scope.data.R_URL.test($scope.data.url) || $scope.data.base64) {
                 $modalInstance.close({
-                    url: $scope.data.url,
+                    url: $scope.data.url || $scope.data.base64,
                     title: $scope.data.title
                 });
             } else {
                 $scope.urlPassed = false;
-
                 var $imageUrl = $('#image-url');
                 if ($imageUrl) {
                     $imageUrl.focus();

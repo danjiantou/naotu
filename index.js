@@ -20,7 +20,7 @@
         'line-height': '27px',
         'border-radius': '5px',
         'font-size': '12px',
-        'margin': '6px 5px',
+        'margin': '12px 5px',
 		'text-decoration': 'none',
 		'color': '#999',
 		'padding': '0 10px',
@@ -133,22 +133,8 @@
 		// 清空
 		document.getElementsByClassName('diy clear')[0].onclick = function(){
 			window.localStorage.__dev_minder_content = null;
-			location.href = location.href;
-			/* editor && editor.minder.importJson({
-				template:"default",
-				theme:"fresh-blue"
-			}) */
-		}
-		try{
-			// 存贮本地
-			if (editor != undefined && window.localStorage.__dev_minder_content) {
-				editor.minder.importJson(JSON.parse(window.localStorage.__dev_minder_content));
-			}
-			editor != undefined && editor.minder.on('contentchange', function() {
-				window.localStorage.__dev_minder_content = JSON.stringify(editor.minder.exportJson());
-			});
-		} catch(e){
-			console.log(e);
+			// location.href = location.href;
+			editor && editor.minder.importJson({"root":{"data":{"id":"cluponwyoi00","created":1659359032595,"text":"中心主题"}}})
 		}
 	}
 })();

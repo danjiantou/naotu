@@ -1,7 +1,7 @@
 <!--
  * @Author: zhaowenb
  * @Date: 2022-07-27 12:01:07
- * @LastEditTime: 2022-08-01 19:00:16
+ * @LastEditTime: 2022-08-02 17:51:03
  * @LastEditors: zhaowenb
  * @Description: 
 -->
@@ -12,15 +12,15 @@ KityMinder Editor
 
 KityMinder Editor 是一款强大、简洁、体验优秀的脑图编辑工具，适合用于编辑树/图/网等结构的数据。
 
-编辑器由百度 [FEX](https://github.com/fex-team) 基于 [kityminder-core](https://github.com/fex-team/kityminder-core) 搭建，并且在[百度脑图]中使用。
+编辑器由 [FEX](https://github.com/) 基于 [kityminder-core](https://github.com//kityminder-core) 搭建，并且在[思维脑图]中使用。
 
 他们的区别与联系如下：
 
 ![KityMinder 联系](relations.png "KityMinder 联系")
 
-- [kityminder-core](https://github.com/fex-team/kityminder-core) 是 kityminder 的核心部分，基于百度 [FEX](https://github.com/fex-team) 开发的矢量图形库 [kity](https://github.com/fex-team/kity)。包含了脑图数据的可视化展现，简单编辑功能等所有底层支持。
-- [kityminder-editor](https://github.com/fex-team/kityminder-editor) 基于 kityminder-core 搭建，依赖于 AngularJS，包含 UI 和热盒 [hotbox](https://github.com/fex-team/hotbox) 等方便用户输入的功能，简单来说，就是一款编辑器。
-- [百度脑图] 基于 kityminder-editor，加入了第三方格式导入导出 (FreeMind, XMind, MindManager) 、文件储存、用户认证、文件分享、历史版本等业务逻辑。
+- [kityminder-core](https://github.com//kityminder-core) 是 kityminder 的核心部分，基于 [FEX](https://github.com/) 开发的矢量图形库 [kity](https://github.com//kity)。包含了脑图数据的可视化展现，简单编辑功能等所有底层支持。
+- [kityminder-editor](https://github.com//kityminder-editor) 基于 kityminder-core 搭建，依赖于 AngularJS，包含 UI 和热盒 [hotbox](https://github.com//hotbox) 等方便用户输入的功能，简单来说，就是一款编辑器。
+- [思维脑图] 基于 kityminder-editor，加入了第三方格式导入导出 (FreeMind, XMind, MindManager) 、文件储存、用户认证、文件分享、历史版本等业务逻辑。
 
 ## 功能
 
@@ -41,8 +41,8 @@ KityMinder Editor 是一款强大、简洁、体验优秀的脑图编辑工具�
 根目录下的 `index.html` 为开发环境，`dist` 目录下的 `index.html` 使用打包好的代码，适用于线上环境。
 
 1. 安装 [nodejs](http://nodejs.org) 和 [npm](https://docs.npmjs.com/getting-started/installing-node)
-2. 初始化：切到 kityminder-editor 根目录下运行 `npm run init`
-3. 在 kityminder-editor 根目录下运行 `grunt dev` 即可启动项目
+2. 初始化：切到 naotu 根目录下运行 `npm run init`
+3. 在 naotu 根目录下运行 `grunt dev` 即可启动项目
 4. 你可以基于根目录的 `index.html` 开发，或者查看 `dist` 目录下用于生产环境的 `index.html`，Enjoy it!
 
 另外，kityminder-editor 还提供了 bower 包，方便开发者直接使用。你可以在需要用到 kityminder-editor 的工程目录下
@@ -56,7 +56,7 @@ KityMinder Editor 是一款强大、简洁、体验优秀的脑图编辑工具�
 ## 初始化配置
 用户可以根据需要，配置 `kityminder-editor`, 具体使用方法如下：
 ```
-angular.module('kityminderDemo', ['kityminderEditor'])
+angular.module('editorBox', ['kityminderEditor'])
     .config(function (configProvider) {
         configProvider.set('imageUpload', 'path/to/image/upload/handler');
     });
@@ -80,15 +80,11 @@ angular.module('kityminderDemo', ['kityminderEditor'])
 * `svg` - SVG 矢量格式，仅支持导出
 * `png` - PNG 位图格式，仅支持导出
 
-更多格式的支持，可以加载 [kityminder-protocol](https://github.com/fex-team/kityminder-protocol) 来扩展第三方格式支持。
+更多格式的支持，可以加载 [kityminder-protocol](https://github.com//kityminder-protocol) 来扩展第三方格式支持。
 
-数据格式的具体信息，可参考 [kityminder-core-wiki 的中的说明](https://github.com/fex-team/kityminder-core/wiki)。
+数据格式的具体信息，可参考 [kityminder-core-wiki 的中的说明](https://github.com//kityminder-core/wiki)。
 
 ## 联系我们
 问题和建议反馈：
 
-[Github issues](https://github.com/fex-team/kityminder-editor/issues)
-
-邮件组：kity@baidu.com
-
-QQ 讨论群：475962105
+[Github issues](https://github.com//kityminder-editor/issues)

@@ -4,7 +4,7 @@
  * 热盒 Runtime
  *
  * @author: zhaowenb
- * @copyright: Baidu FEX, 2014
+
  */
 define(function(require, exports, module) {
     var Hotbox = require('../hotbox');

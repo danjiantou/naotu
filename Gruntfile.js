@@ -10,6 +10,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-browser-sync');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-processhtml');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
     var pkg = grunt.file.readJSON('package.json');
 
@@ -23,8 +24,7 @@ module.exports = function(grunt) {
         ' * <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
         '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
         '<%= pkg.homepage ? " * " + pkg.homepage + "\\n" : "" %>' +
-        ' * GitHub: <%= pkg.repository.url %> \n' +
-        ' * Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
+        ' * name <%= pkg.author.name %>;' +
         ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %>\n' +
         ' * ====================================================\n' +
         ' */\n\n';
@@ -71,7 +71,7 @@ module.exports = function(grunt) {
 		browserSync: {
             bsFiles: {
                 dist: 'dist/css/*.css',
-                src: 'src/**'
+                src: ['src/**', 'less/*.less']
             },
             options: {
                 server: {
@@ -90,7 +90,7 @@ module.exports = function(grunt) {
                     footer: expose + '})();'
                 },
                 files: {
-	                'dist/kityminder.editor.js': [
+                    'dist/editor.js': [
 		                '.tmp/scripts/kityminder.editor.logic.js',
 		                '.tmp/scripts/kityminder.app.annotated.js',
 		                '.tmp/scripts/templates.annotated.js',
@@ -109,8 +109,8 @@ module.exports = function(grunt) {
             },
             minimize: {
                 files: [{
-	                src: 'dist/kityminder.editor.js',
-	                dest: 'dist/kityminder.editor.min.js'
+	                src: 'dist/editor.js',
+	                dest: 'dist/editor.min.js'
                 }]
             }
         },
@@ -123,8 +123,16 @@ module.exports = function(grunt) {
                     sourceMapFilename: 'dist/css/editor.css.map'
                 },
                 files: [{
-                    src: 'less/editor.less',
+                    src: ['less/editor.less','less/index.less',],
                     dest: 'dist/editor.css'
+                },{
+                    'dist/base.css': [
+                        'bower_components/bootstrap/dist/css/bootstrap.css', 
+                        'bower_components/codemirror/lib/codemirror.css',
+                        'bower_components/hotbox/hotbox.css',
+                        'bower_components/kityminder-core/dist/kityminder.core.css',
+                        'bower_components/color-picker/dist/color-picker.css'
+                    ],
                 }]
             }
         },
@@ -132,7 +140,7 @@ module.exports = function(grunt) {
 	    cssmin: {
 	        dist: {
 	            files: {
-	                'dist/editor.min.css': ['dist/editor.css', '*.css']
+	                'dist/editor.min.css': ['dist/editor.css', '*.css'],
 	            }
 	        }
 	    },
@@ -206,14 +214,29 @@ module.exports = function(grunt) {
                     'dist/index.html': 'index.html',
                 }
             }
+        },
+        htmlmin: {
+            dist: {
+                options: {
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                files: {
+                    'dist/index.html': 'dist/index.html'
+                }
+            },
+            dev: {
+                /* files: {
+                    'index.html': 'index.html'
+                } */
+            }
         }
-
     });
 
     // Build task(s).
 	grunt.registerTask('build', ['clean:last',
 		//'wiredep:dist',
-        'ngtemplates', 'dependence', 'ngAnnotate', 'concat', 'uglify', 'less', 'cssmin', 'copy', 'clean:clstmp', 'processhtml']);
+        'ngtemplates', 'dependence', 'ngAnnotate', 'concat', 'uglify', 'less', 'cssmin', 'copy', 'clean:clstmp', 'processhtml', 'htmlmin']);
 
 	grunt.registerTask('dev', ['clean:last',
         //'wiredep:dev',

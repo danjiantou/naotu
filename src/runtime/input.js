@@ -4,7 +4,7 @@
  * 文本输入支持
  *
  * @author: zhaowenb
- * @copyright: Baidu FEX, 2014
+
  */
 define(function(require, exports, module) {
 
@@ -341,7 +341,7 @@ define(function(require, exports, module) {
             /**
              * @Desc: 进行如下处理：
              *             根据用户的输入判断是否生成新的节点
-             *        fix #83 https://github.com/fex-team/kityminder-editor/issues/83
+             *        fix #83 https://github.com//kityminder-editor/issues/83
              * @Editor: Naixor
              * @Date: 2015.9.16
              */

@@ -1,25 +1,15 @@
+<!--
+ * @Author: zhaowenb
+ * @Date: 2022-07-27 12:01:07
+ * @LastEditTime: 2022-08-02 17:30:32
+ * @LastEditors: zhaowenb
+ * @Description: 
+-->
 <div class="modal-header">
     <h3 class="modal-title">图片</h3>
 </div>
 <div class="modal-body">
     <tabset>
-        <tab heading="图片搜索">
-            <form class="form-inline">
-                <div class="form-group">
-                    <label for="search-keyword">关键词：</label>
-                    <input type="text" class="form-control" ng-model="data.searchKeyword2" id="search-keyword" placeholder="请输入搜索的关键词">
-                </div>
-                <button class="btn btn-primary" ng-click="searchImage()">百度一下</button>
-            </form>
-            <div class="search-result" id="search-result">
-                <ul>
-                    <li ng-repeat="image in list" id="{{ 'img-item' + $index }}" ng-class="{'selected' : isSelected}" ng-click="selectImage($event)">
-                        <img id="{{ 'img-' + $index }}" ng-src="{{ image.src || '' }}" alt="{{ image.title }}" onerror="this.parentNode.removeChild(this)" />
-                        <span>{{ image.title }}</span>
-                    </li>
-                </ul>
-            </div>
-        </tab>
         <tab heading="外链图片">
             <form>
                 <div class="form-group" ng-class="{true: 'has-success', false: 'has-error'}[urlPassed]">
@@ -47,7 +37,13 @@
             <form>
                 <div class="form-group">
                     <!-- 这里不能用 ng-change -->
-                    <input type="file" name="upload-image" id="upload-image" class="upload-image" accept=".jpg,.JPG,jpeg,JPEG,.png,.PNG,.gif,.GIF" onchange="angular.element(this).scope().uploadImage()"/>
+                    <input type="file" 
+                        name="upload-image" 
+                        id="upload-image" 
+                        class="upload-image" 
+                        ng-model="data.base64"
+                        accept=".jpg,.JPG,jpeg,JPEG,.png,.PNG,.gif,.GIF" 
+                        onchange="angular.element(this).scope().uploadImage()"/>
                     <label for="upload-image" class="btn btn-primary"><span>选择文件&hellip;</span></label>
                 </div>
                 <div class="form-group" ng-class="{'has-success' : titlePassed}">
@@ -56,7 +52,7 @@
                 </div>
                 <div class="form-group">
                     <label for="image-preview">图片预览：</label>
-                    <img class="image-preview" id="image-preview" ng-src="{{ data.url }}" title="{{ data.title }}" alt="{{ data.title }}"/>
+                    <img class="image-preview" id="image-preview" ng-src="{{ data.base64 }}" title="{{ data.title }}" alt="{{ data.title }}"/>
                 </div>
             </form>
         </tab>

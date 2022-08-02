@@ -2,10 +2,7 @@
  * @fileOverview
  *
  * 左下角的导航器
- *
-
- *
- * @copyright: Baidu FEX, 2015 */
+ * */
 angular.module('kityminderEditor')
     .directive('navigator', ['memory', 'config', function(memory, config) {
         return {

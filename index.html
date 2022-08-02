@@ -20,7 +20,6 @@
 
     <!-- build:css editor.min.css -->
 	<link rel="stylesheet" href="dist/editor.css">
-    <link rel="stylesheet" href="index.css">
     <!-- /build -->
 </head>
 <body ng-app="editorBox" ng-controller="MainController">
@@ -98,19 +97,24 @@
 
 <!-- build:template
     <% if (environment != 'dev') { %>
-        <script src="./kityminder.editor.min.js"></script>
+        <script src="./editor.min.js"></script>
     <% } %>
 /build -->
 <script src="./index.js"></script>
 <script>
 	angular.module('editorBox', ['kityminderEditor'])
         .controller('MainController', function($scope) {
-            console.log('$scope对象：',$scope)
+            // console.log('$scope对象：',$scope)
             $scope.initEditor = function(editor, minder) {
-                console.log('editor',editor);
-                console.log('minder',minder);
+                // console.log('editor=',editor,'minder=',minder);
                 window.editor = editor;
                 window.minder = minder;
+                if (window.localStorage.__dev_minder_content) {
+                    editor.minder.importJson(JSON.parse(window.localStorage.__dev_minder_content));
+                }
+                editor.minder.on('contentchange', function() {
+                    window.localStorage.__dev_minder_content = JSON.stringify(editor.minder.exportJson());
+                });
             };
         });
 </script>
